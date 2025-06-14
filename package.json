@@ -4,6 +4,10 @@
   "description": "Stringify the selected text",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benoitmarsot/stringifyer.git"
+  },
   "engines": {
     "vscode": "^1.101.0"
   },
