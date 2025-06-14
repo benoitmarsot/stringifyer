@@ -10,11 +10,16 @@ export function activate(context: vscode.ExtensionContext) {
         editor.edit(editBuilder => {
             for (const selection of selections) {
                 const text = editor.document.getText(selection);
-                // Escape backslashes, then double quotes, then replace newlines
+                // Escape backslashes first, then other special characters
                 const escaped = text
-                    .replace(/\\/g, '\\\\')
-                    .replace(/"/g, '\\"')
-                    .replace(/\n/g, '\\n');
+                    .replace(/\\/g, '\\\\')     // Backslashes must be escaped first
+                    .replace(/"/g, '\\"')       // Double quotes
+                    .replace(/\r/g, '\\r')      // Carriage returns
+                    .replace(/\n/g, '\\n')      // Newlines
+                    .replace(/\t/g, '\\t')      // Tabs
+                    .replace(/\b/g, '\\b')      // Backspace
+                    .replace(/\f/g, '\\f')      // Form feed
+                    .replace(/\v/g, '\\v');     // Vertical tab
                 const stringified = `"${escaped}"`;
                 editBuilder.replace(selection, stringified);
             }
