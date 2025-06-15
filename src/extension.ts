@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
                     .replace(/\r/g, '\\r')      // Carriage returns
                     .replace(/\n/g, '\\n')      // Newlines
                     .replace(/\t/g, '\\t')      // Tabs
-                    .replace(/\b/g, '\\b')      // Backspace
+                    .replace(/[\u0008]/g, '\\b') // Backspace (use unicode)
                     .replace(/\f/g, '\\f')      // Form feed
                     .replace(/\v/g, '\\v');     // Vertical tab
                 const stringified = `"${escaped}"`;

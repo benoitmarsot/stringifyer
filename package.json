@@ -2,7 +2,8 @@
   "name": "stringifyer",
   "displayName": "stringifyer",
   "description": "Stringify the selected text",
-  "version": "0.0.1",
+  "version": "1.0.2",
+  "publisher": "unbumpkin",
   "license": "MIT",
   "repository": {
     "type": "git",
